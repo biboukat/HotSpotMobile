@@ -11,15 +11,15 @@ import {
 import Carousel from 'react-native-snap-carousel';
 import shuffle from 'lodash/shuffle';
 
-import {data, IValabularyItem, LanguageEnum} from './data';
 import Item from './Item';
+import {listeningWeek1, IValabularyItem, LanguageEnum} from './data';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
 declare const global: {HermesInternal: null | {}};
 
-const shuffleData = shuffle(data);
+const shuffleData = shuffle(listeningWeek1);
 
 const App = () => {
   const [baseLnaguage, seBaseLanguage] = useState<LanguageEnum>(

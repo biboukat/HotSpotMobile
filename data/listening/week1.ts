@@ -1,23 +1,10 @@
-export interface IValabularyItem {
-  eng: {
-    vord: string;
-    example?: Array<{value: string; id: string}>;
-  };
-  rus: {
-    vord: string;
-    example?: Array<{value: string; id: string}>;
-  };
-}
+import {IValabularyItem} from '../index';
 
-export enum LanguageEnum {
-  eng = 'eng',
-  rus = 'rus',
-}
-
-export const data: IValabularyItem[] = [
+export const listeningWeek1: IValabularyItem[] = [
   {
     eng: {
-      vord: 'lead (verb)',
+      vord: 'lead',
+      partOfSpeach: 'verb',
       example: [
         {value: 'to lead a discussion', id: '1'},
         {value: 'to lead a busy life', id: '2'},
@@ -33,7 +20,8 @@ export const data: IValabularyItem[] = [
   },
   {
     eng: {
-      vord: 'quality (noun)',
+      vord: 'quality',
+      partOfSpeach: 'noun',
       example: [
         {value: 'poor/low quality', id: '1'},
         {value: 'hight quality', id: '2'},
@@ -49,7 +37,8 @@ export const data: IValabularyItem[] = [
   },
   {
     eng: {
-      vord: 'tool (noun)',
+      vord: 'tool',
+      partOfSpeach: 'noun',
       example: [{value: 'an effective tool', id: '1'}],
     },
     rus: {
@@ -59,7 +48,8 @@ export const data: IValabularyItem[] = [
   },
   {
     eng: {
-      vord: 'responsibility (noun)',
+      vord: 'responsibility',
+      partOfSpeach: 'noun',
       example: [{value: 'to take resposibility', id: '1'}],
     },
     rus: {
@@ -69,7 +59,8 @@ export const data: IValabularyItem[] = [
   },
   {
     eng: {
-      vord: 'patient (adjective)',
+      vord: 'patient',
+      partOfSpeach: 'adjective',
       example: [{value: 'a patient teacher', id: '1'}],
     },
     rus: {
@@ -79,7 +70,8 @@ export const data: IValabularyItem[] = [
   },
   {
     eng: {
-      vord: 'patience (noun)',
+      vord: 'patience',
+      partOfSpeach: 'noun',
       example: [{value: 'to have a lot of patience', id: '1'}],
     },
     rus: {
@@ -89,7 +81,8 @@ export const data: IValabularyItem[] = [
   },
   {
     eng: {
-      vord: 'reduce (verb)',
+      vord: 'reduce',
+      partOfSpeach: 'verb',
       example: [
         {value: 'to reduce words', id: '1'},
         {value: 'to reduce the cost', id: '2'},
@@ -105,7 +98,8 @@ export const data: IValabularyItem[] = [
   },
   {
     eng: {
-      vord: 'resist (verb)',
+      vord: 'resist',
+      partOfSpeach: 'verb',
       example: [{value: 'to resist a plan', id: '1'}],
     },
     rus: {
@@ -115,7 +109,8 @@ export const data: IValabularyItem[] = [
   },
   {
     eng: {
-      vord: 'score (noun)',
+      vord: 'score',
+      partOfSpeach: 'noun',
       example: [{value: 'a hight score', id: '1'}],
     },
     rus: {
@@ -125,7 +120,8 @@ export const data: IValabularyItem[] = [
   },
   {
     eng: {
-      vord: 'hold (verb)',
+      vord: 'hold',
+      partOfSpeach: 'verb',
       example: [
         {value: 'to hold a baby', id: '1'},
         {value: 'to hold a confereence', id: '2'},
@@ -141,7 +137,8 @@ export const data: IValabularyItem[] = [
   },
   {
     eng: {
-      vord: 'regret (verb)',
+      vord: 'regret',
+      partOfSpeach: 'verb',
       example: [{value: 'to regret a desicion', id: '1'}],
     },
     rus: {
@@ -151,7 +148,8 @@ export const data: IValabularyItem[] = [
   },
   {
     eng: {
-      vord: 'ability (noun)',
+      vord: 'ability',
+      partOfSpeach: 'noun',
       example: [{value: 'to have an ability', id: '1'}],
     },
     rus: {
@@ -161,7 +159,8 @@ export const data: IValabularyItem[] = [
   },
   {
     eng: {
-      vord: 'punishment (noun)',
+      vord: 'punishment',
+      partOfSpeach: 'noun',
       example: [{value: 'to deserve punishment', id: '1'}],
     },
     rus: {
@@ -171,7 +170,8 @@ export const data: IValabularyItem[] = [
   },
   {
     eng: {
-      vord: 'pill (noun)',
+      vord: 'pill',
+      partOfSpeach: 'noun',
       example: [{value: 'to take a pill', id: '1'}],
     },
     rus: {
@@ -181,7 +181,7 @@ export const data: IValabularyItem[] = [
   },
   {
     eng: {
-      vord: 'option (noun)',
+      vord: 'option',
       example: [{value: 'to have several options', id: '1'}],
     },
     rus: {
@@ -191,7 +191,8 @@ export const data: IValabularyItem[] = [
   },
   {
     eng: {
-      vord: 'embarrassed (adjective)',
+      vord: 'embarrassed',
+      partOfSpeach: 'adjective',
       example: [{value: 'Why do you feel embarrassed?', id: '1'}],
     },
     rus: {
@@ -201,7 +202,8 @@ export const data: IValabularyItem[] = [
   },
   {
     eng: {
-      vord: 'kidnap (verb)',
+      vord: 'kidnap',
+      partOfSpeach: 'verb',
       example: [{value: 'to kidnap a child', id: '1'}],
     },
     rus: {
@@ -211,7 +213,8 @@ export const data: IValabularyItem[] = [
   },
   {
     eng: {
-      vord: 'damage (verb)',
+      vord: 'damage',
+      partOfSpeach: 'verb',
       example: [{value: 'to damage a car', id: '1'}],
     },
     rus: {
@@ -221,7 +224,8 @@ export const data: IValabularyItem[] = [
   },
   {
     eng: {
-      vord: 'single (adjective)',
+      vord: 'single',
+      partOfSpeach: 'adjective',
       example: [
         {value: "She's single", id: '1'},
         {value: "I didn't hear a single word", id: '2'},
@@ -238,7 +242,8 @@ export const data: IValabularyItem[] = [
   },
   {
     eng: {
-      vord: 'trade (verb)',
+      vord: 'trade',
+      partOfSpeach: 'verb',
       example: [{value: 'to trade with China', id: '1'}],
     },
     rus: {
@@ -248,7 +253,8 @@ export const data: IValabularyItem[] = [
   },
   {
     eng: {
-      vord: 'satisfied (adjective)',
+      vord: 'satisfied',
+      partOfSpeach: 'adjective',
       example: [{value: 'a satisfied teacher', id: '1'}],
     },
     rus: {
@@ -258,7 +264,8 @@ export const data: IValabularyItem[] = [
   },
   {
     eng: {
-      vord: 'obvious (adjective)',
+      vord: 'obvious',
+      partOfSpeach: 'adjective',
       example: [{value: 'an obvious answer', id: '1'}],
     },
     rus: {
@@ -268,7 +275,8 @@ export const data: IValabularyItem[] = [
   },
   {
     eng: {
-      vord: 'compare (verb)',
+      vord: 'compare',
+      partOfSpeach: 'verb',
       example: [{value: 'to compare scores', id: '1'}],
     },
     rus: {
@@ -278,7 +286,8 @@ export const data: IValabularyItem[] = [
   },
   {
     eng: {
-      vord: 'steal (verb)',
+      vord: 'steal',
+      partOfSpeach: 'verb',
       example: [{value: 'to steal a bag', id: '1'}],
     },
     rus: {
@@ -288,7 +297,8 @@ export const data: IValabularyItem[] = [
   },
   {
     eng: {
-      vord: 'rent (verb)',
+      vord: 'rent',
+      partOfSpeach: 'verb',
       example: [{value: 'to rent an apartment', id: '1'}],
     },
     rus: {
@@ -298,7 +308,8 @@ export const data: IValabularyItem[] = [
   },
   {
     eng: {
-      vord: 'thick (adjective)',
+      vord: 'thick',
+      partOfSpeach: 'adjective',
       example: [
         {value: 'a thick sweateer', id: '1'},
         {value: 'a thick forest', id: '2'},
@@ -314,7 +325,8 @@ export const data: IValabularyItem[] = [
   },
   {
     eng: {
-      vord: 'attitude (noun)',
+      vord: 'attitude',
+      partOfSpeach: 'noun',
       example: [{value: 'a bad attitude', id: '1'}],
     },
     rus: {
@@ -324,7 +336,8 @@ export const data: IValabularyItem[] = [
   },
   {
     eng: {
-      vord: 'matter (verb)',
+      vord: 'matter',
+      partOfSpeach: 'verb',
       example: [{value: "it doesn't matter", id: '1'}],
     },
     rus: {
@@ -334,7 +347,8 @@ export const data: IValabularyItem[] = [
   },
   {
     eng: {
-      vord: 'apologize (verb)',
+      vord: 'apologize',
+      partOfSpeach: 'verb',
       example: [{value: 'to apologize to your mother', id: '1'}],
     },
     rus: {
@@ -344,7 +358,8 @@ export const data: IValabularyItem[] = [
   },
   {
     eng: {
-      vord: 'waste (verb)',
+      vord: 'waste',
+      partOfSpeach: 'verb',
       example: [{value: 'to waste time', id: '1'}],
     },
     rus: {
@@ -354,7 +369,8 @@ export const data: IValabularyItem[] = [
   },
   {
     eng: {
-      vord: 'poor (adjective)',
+      vord: 'poor',
+      partOfSpeach: 'adjective',
       example: [
         {value: 'a poor man', id: '1'},
         {value: 'poor quality', id: '2'},
@@ -372,7 +388,8 @@ export const data: IValabularyItem[] = [
   },
   {
     eng: {
-      vord: 'insurance (noun)',
+      vord: 'insurance',
+      partOfSpeach: 'noun',
       example: [{value: 'to get a insurance', id: '1'}],
     },
     rus: {
@@ -382,7 +399,8 @@ export const data: IValabularyItem[] = [
   },
   {
     eng: {
-      vord: 'approval (noun)',
+      vord: 'approval',
+      partOfSpeach: 'noun',
       example: [{value: 'to give approval', id: '1'}],
     },
     rus: {
@@ -392,7 +410,8 @@ export const data: IValabularyItem[] = [
   },
   {
     eng: {
-      vord: 'value (verb)',
+      vord: 'value',
+      partOfSpeach: 'verb',
       example: [{value: 'to value advice', id: '1'}],
     },
     rus: {
@@ -402,7 +421,8 @@ export const data: IValabularyItem[] = [
   },
   {
     eng: {
-      vord: 'perform (verb)',
+      vord: 'perform',
+      partOfSpeach: 'verb',
       example: [{value: 'to perform on stage', id: '1'}],
     },
     rus: {
@@ -412,7 +432,8 @@ export const data: IValabularyItem[] = [
   },
   {
     eng: {
-      vord: 'recipe (noun)',
+      vord: 'recipe',
+      partOfSpeach: 'noun',
       example: [{value: 'a nice recipe', id: '1'}],
     },
     rus: {
@@ -422,7 +443,8 @@ export const data: IValabularyItem[] = [
   },
   {
     eng: {
-      vord: 'carry (verb)',
+      vord: 'carry',
+      partOfSpeach: 'verb',
       example: [{value: 'to carry a bag', id: '1'}],
     },
     rus: {
@@ -432,7 +454,8 @@ export const data: IValabularyItem[] = [
   },
   {
     eng: {
-      vord: 'deserve (verb)',
+      vord: 'deserve',
+      partOfSpeach: 'verb',
       example: [{value: 'to deserve punishment', id: '1'}],
     },
     rus: {
@@ -442,7 +465,8 @@ export const data: IValabularyItem[] = [
   },
   {
     eng: {
-      vord: 'vote (verb)',
+      vord: 'vote',
+      partOfSpeach: 'verb',
       example: [{value: 'to vote for Obama', id: '1'}],
     },
     rus: {
