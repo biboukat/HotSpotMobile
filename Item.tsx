@@ -14,12 +14,8 @@ const Item = ({item, initialLanguage}: ItemProps) => {
     false,
   );
   const changeLanguagePress = (v: boolean) => () => {
-    console.log('bla her', from);
-    console.log('bla her', to);
-
     changeTranslationVisibility(v);
   };
-  console.log('bla ', showTranslation ? from.vord : to.vord, showTranslation);
 
   return (
     <TouchableOpacity
