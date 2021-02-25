@@ -28,6 +28,7 @@ export class ListeningWordsItem extends PureComponent<ItemProps, ItemState> {
     return (
       <TouchableOpacity
         style={styles.container}
+        delayPressIn={100}
         onPressOut={this.changeLanguagePress(false)}
         onLongPress={this.changeLanguagePress(true)}
         activeOpacity={1}>

@@ -27,8 +27,16 @@ const SpeakingStack = createStackNavigator<SpeakingStackParamList>();
 const SpeakingStackNavigator = () => {
   return (
     <SpeakingStack.Navigator initialRouteName={'Listening'}>
-      <SpeakingStack.Screen name={'Listening'} component={ListeningScreen} />
       <SpeakingStack.Screen
+        name={'Listening'}
+        component={ListeningScreen}
+        options={{headerShown: false}}
+      />
+      <SpeakingStack.Screen
+        options={{
+          title: 'Listening Words',
+          headerBackTitleVisible: false,
+        }}
         name={'ListeningWords'}
         component={ListeningWordsScreen}
         initialParams={{weekNumber: 'week1'}}
