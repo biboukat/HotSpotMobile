@@ -3,147 +3,134 @@ import {IValabularyItem} from '../index';
 export const listeningWeek1: IValabularyItem[] = [
   {
     eng: {
-      vord: 'lead',
+      vord: 'sight',
+      partOfSpeach: 'noun',
+      example: [{value: 'a beautiful sight', id: '1'}],
+    },
+    rus: {
+      vord: 'вид',
+      example: [{value: 'красивый вид', id: '1'}],
+    },
+  },
+  {
+    eng: {
+      vord: 'pressure',
+      partOfSpeach: 'noun',
+      example: [{value: 'under pressure', id: '1'}],
+    },
+    rus: {
+      vord: 'давление',
+      example: [{value: 'под давлением', id: '1'}],
+    },
+  },
+  {
+    eng: {
+      vord: 'expire',
       partOfSpeach: 'verb',
-      example: [
-        {value: 'to lead a discussion', id: '1'},
-        {value: 'to lead a busy life', id: '2'},
-      ],
+      example: [{value: 'Your license expires next month', id: '1'}],
     },
     rus: {
-      vord: 'вести, руководить, направлять',
+      vord: 'истекать (о сроке), терять силу',
       example: [
-        {value: 'направлять разговор', id: '1'},
-        {value: 'вести занятую жизнь', id: '2'},
+        {
+          value: 'Срок действия вашей лицензии истекает в следующем месяце',
+          id: '1',
+        },
       ],
     },
   },
   {
     eng: {
-      vord: 'quality',
+      vord: 'goal',
+      partOfSpeach: 'noun',
+      example: [{value: 'a lofty goal', id: '1'}],
+    },
+    rus: {
+      vord: 'цель',
+      example: [{value: 'высокая, возвышенная цель', id: '1'}],
+    },
+  },
+  {
+    eng: {
+      vord: 'adventure',
+      partOfSpeach: 'noun',
+      example: [{value: 'a fun adventure', id: '1'}],
+    },
+    rus: {
+      vord: 'приключение',
+      example: [{value: 'веселое приключение', id: '1'}],
+    },
+  },
+  {
+    eng: {
+      vord: 'mark',
+      partOfSpeach: 'verb',
+      example: [{value: 'to mark a mistake', id: '1'}],
+    },
+    rus: {
+      vord: 'отмечать, помечать',
+      example: [{value: 'отметить ошибку', id: '1'}],
+    },
+  },
+  {
+    eng: {
+      vord: 'straight',
+      partOfSpeach: 'advereb',
+      example: [{value: 'to go straight', id: '1'}],
+    },
+    rus: {
+      vord: 'прямо',
+      example: [{value: 'идти прямо', id: '1'}],
+    },
+  },
+  {
+    eng: {
+      vord: 'matter',
       partOfSpeach: 'noun',
       example: [
-        {value: 'poor/low quality', id: '1'},
-        {value: 'hight quality', id: '2'},
+        {value: 'a matter of time', id: '1'},
+        {value: "What's the matter?", id: '2'},
       ],
     },
     rus: {
-      vord: 'качество',
+      vord: 'дело, вопрос',
       example: [
-        {value: 'низкое качество', id: '1'},
-        {value: 'высокое качество', id: '2'},
+        {value: 'вопрос времени', id: '1'},
+        {value: 'В чем дело?', id: '2'},
       ],
     },
   },
   {
     eng: {
-      vord: 'tool',
-      partOfSpeach: 'noun',
-      example: [{value: 'an effective tool', id: '1'}],
+      vord: 'suggest',
+      partOfSpeach: 'verb',
+      example: [{value: 'to suggest a plan', id: '1'}],
     },
     rus: {
-      vord: 'инструмент',
-      example: [{value: 'эффективный инструмент', id: '1'}],
+      vord: 'предлагать, предполагать',
+      example: [{value: 'предложить план', id: '1'}],
     },
   },
   {
     eng: {
-      vord: 'responsibility',
-      partOfSpeach: 'noun',
-      example: [{value: 'to take resposibility', id: '1'}],
-    },
-    rus: {
-      vord: 'ответственность',
-      example: [{value: 'взять на себя ответственность', id: '1'}],
-    },
-  },
-  {
-    eng: {
-      vord: 'patient',
+      vord: 'separate',
       partOfSpeach: 'adjective',
-      example: [{value: 'a patient teacher', id: '1'}],
+      example: [{value: 'a separate sheet of paper', id: '1'}],
     },
     rus: {
-      vord: 'терпеливый',
-      example: [{value: 'терпеливый учитель', id: '1'}],
+      vord: 'отдельный',
+      example: [{value: 'отдельный лист бумаги', id: '1'}],
     },
   },
   {
     eng: {
-      vord: 'patience',
+      vord: 'variety',
       partOfSpeach: 'noun',
-      example: [{value: 'to have a lot of patience', id: '1'}],
+      example: [{value: 'great variety', id: '1'}],
     },
     rus: {
-      vord: 'терпение',
-      example: [{value: 'иметь много терпения', id: '1'}],
-    },
-  },
-  {
-    eng: {
-      vord: 'reduce',
-      partOfSpeach: 'verb',
-      example: [
-        {value: 'to reduce words', id: '1'},
-        {value: 'to reduce the cost', id: '2'},
-      ],
-    },
-    rus: {
-      vord: 'уменьшать, сокращать',
-      example: [
-        {value: 'сокращать слова', id: '1'},
-        {value: 'сщкращать стоимость', id: '2'},
-      ],
-    },
-  },
-  {
-    eng: {
-      vord: 'resist',
-      partOfSpeach: 'verb',
-      example: [{value: 'to resist a plan', id: '1'}],
-    },
-    rus: {
-      vord: 'сопротивляться',
-      example: [{value: 'сопротивляться плану', id: '1'}],
-    },
-  },
-  {
-    eng: {
-      vord: 'score',
-      partOfSpeach: 'noun',
-      example: [{value: 'a hight score', id: '1'}],
-    },
-    rus: {
-      vord: 'счет оценка',
-      example: [{value: 'высокая оценка', id: '1'}],
-    },
-  },
-  {
-    eng: {
-      vord: 'hold',
-      partOfSpeach: 'verb',
-      example: [
-        {value: 'to hold a baby', id: '1'},
-        {value: 'to hold a confereence', id: '2'},
-      ],
-    },
-    rus: {
-      vord: 'держать (в руках), проводить (мероприятие)',
-      example: [
-        {value: 'держать ребенка', id: '1'},
-        {value: 'проводить мероприятие', id: '2'},
-      ],
-    },
-  },
-  {
-    eng: {
-      vord: 'regret',
-      partOfSpeach: 'verb',
-      example: [{value: 'to regret a desicion', id: '1'}],
-    },
-    rus: {
-      vord: 'сожалеть',
-      example: [{value: 'сожалеть о решение', id: '1'}],
+      vord: 'разнообразие',
+      example: [{value: 'большое разнообразие', id: '1'}],
     },
   },
   {

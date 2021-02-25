@@ -8,11 +8,13 @@ import {
   StyleSheet,
   View,
 } from 'react-native';
+import 'react-native-gesture-handler';
 import Carousel from 'react-native-snap-carousel';
 import shuffle from 'lodash/shuffle';
 
 import Item from './Item';
 import {listeningWeek1, IValabularyItem, LanguageEnum} from './data';
+import {Navigation} from './src/navigation';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
@@ -35,42 +37,43 @@ const App = () => {
   };
 
   return (
-    <>
-      <StatusBar barStyle="dark-content" />
+    <Navigation />
+    // <>
+    //   <StatusBar barStyle="dark-content" />
 
-      <SafeAreaView style={styles.container}>
-        <Carousel<IValabularyItem>
-          data={shuffleData}
-          renderItem={renderItem}
-          sliderWidth={windowWidth}
-          sliderHeight={windowHeight}
-          itemWidth={windowWidth}
-          itemHeight={windowHeight}
-        />
+    //   <SafeAreaView style={styles.container}>
+    //     <Carousel<IValabularyItem>
+    //       data={shuffleData}
+    //       renderItem={renderItem}
+    //       sliderWidth={windowWidth}
+    //       sliderHeight={windowHeight}
+    //       itemWidth={windowWidth}
+    //       itemHeight={windowHeight}
+    //     />
 
-        <View style={styles.buttonContainer}>
-          <TouchableOpacity
-            style={[
-              styles.button,
-              baseLnaguage === LanguageEnum.eng ? styles.disabledButton : null,
-            ]}
-            onPress={selectLanguage(LanguageEnum.eng)}
-            disabled={baseLnaguage === LanguageEnum.eng}>
-            <Text style={styles.text}>{'rus -> eng'}</Text>
-          </TouchableOpacity>
+    //     <View style={styles.buttonContainer}>
+    //       <TouchableOpacity
+    //         style={[
+    //           styles.button,
+    //           baseLnaguage === LanguageEnum.eng ? styles.disabledButton : null,
+    //         ]}
+    //         onPress={selectLanguage(LanguageEnum.eng)}
+    //         disabled={baseLnaguage === LanguageEnum.eng}>
+    //         <Text style={styles.text}>{'rus -> eng'}</Text>
+    //       </TouchableOpacity>
 
-          <TouchableOpacity
-            style={[
-              styles.button,
-              baseLnaguage === LanguageEnum.rus ? styles.disabledButton : null,
-            ]}
-            onPress={selectLanguage(LanguageEnum.rus)}
-            disabled={baseLnaguage === LanguageEnum.rus}>
-            <Text style={styles.text}>{'eng -> rus'}</Text>
-          </TouchableOpacity>
-        </View>
-      </SafeAreaView>
-    </>
+    //       <TouchableOpacity
+    //         style={[
+    //           styles.button,
+    //           baseLnaguage === LanguageEnum.rus ? styles.disabledButton : null,
+    //         ]}
+    //         onPress={selectLanguage(LanguageEnum.rus)}
+    //         disabled={baseLnaguage === LanguageEnum.rus}>
+    //         <Text style={styles.text}>{'eng -> rus'}</Text>
+    //       </TouchableOpacity>
+    //     </View>
+    //   </SafeAreaView>
+    // </>
   );
 };
 
