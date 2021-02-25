@@ -79,7 +79,7 @@ export const ListeningWordsScreen = ({route}: ListeningWordsScreenProps) => {
       <View style={styles.buttonContainer}>
         <TouchableOpacity style={[styles.button]} onPress={selectLanguage}>
           <Text style={styles.text}>
-            {baseLnaguage === LanguageEnum.eng ? 'eng -> rus' : 'rus -> eng'}
+            {baseLnaguage === LanguageEnum.eng ? 'rus -> eng' : 'eng -> rus'}
           </Text>
         </TouchableOpacity>
       </View>

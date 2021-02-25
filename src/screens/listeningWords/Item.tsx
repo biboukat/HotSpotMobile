@@ -23,8 +23,14 @@ export class ListeningWordsItem extends PureComponent<ItemProps, ItemState> {
 
   render() {
     const {initialLanguage, item} = this.props;
+    const {showTranslation} = this.state;
     const from = initialLanguage === LanguageEnum.eng ? item.eng : item.rus;
     const to = initialLanguage === LanguageEnum.eng ? item.rus : item.eng;
+
+    const word = showTranslation ? to.vord : from.vord;
+    const example = showTranslation ? to.example : from.example;
+    const partOfSpeach = showTranslation ? to.partOfSpeach : from.partOfSpeach;
+
     return (
       <TouchableOpacity
         style={styles.container}
@@ -33,21 +39,19 @@ export class ListeningWordsItem extends PureComponent<ItemProps, ItemState> {
         onLongPress={this.changeLanguagePress(true)}
         activeOpacity={1}>
         <Text style={styles.title}>
-          {this.state.showTranslation ? from.vord : to.vord}
+          {word}
+          {partOfSpeach ? (
+            <Text
+              style={styles.partOfSpeach}>{` (${item.eng.partOfSpeach})`}</Text>
+          ) : null}
         </Text>
 
         <View style={styles.exampleContaniner}>
-          {this.state.showTranslation
-            ? from.example?.map((v) => (
-                <View key={v.id}>
-                  <Text style={styles.text}>{v.value}</Text>
-                </View>
-              ))
-            : to.example?.map((v) => (
-                <View key={v.id}>
-                  <Text style={styles.text}>{v.value}</Text>
-                </View>
-              ))}
+          {example?.map((v) => (
+            <View key={v.id}>
+              <Text style={styles.text}>{v.value}</Text>
+            </View>
+          ))}
         </View>
       </TouchableOpacity>
     );
@@ -62,16 +66,21 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 4,
+    padding: 8,
   },
   title: {
     fontSize: 20,
     fontWeight: '600',
     color: '#fff',
+    textAlign: 'center',
   },
   text: {
     color: '#fff',
   },
   exampleContaniner: {
     marginTop: 24,
+  },
+  partOfSpeach: {
+    fontStyle: 'italic',
   },
 });

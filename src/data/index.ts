@@ -8,6 +8,7 @@ export interface IValabularyItem {
   };
   rus: {
     vord: string;
+    partOfSpeach?: string;
     example?: Array<{value: string; id: string}>;
   };
 }
