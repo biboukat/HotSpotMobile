@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {PureComponent} from 'react';
 import {Text, StyleSheet, TouchableOpacity, View} from 'react-native';
 
 import {IValabularyItem, LanguageEnum} from '~/data';
@@ -8,40 +8,50 @@ interface ItemProps {
   initialLanguage: LanguageEnum;
 }
 
-export const ListeningWordsItem = ({item, initialLanguage}: ItemProps) => {
-  const from = initialLanguage === LanguageEnum.eng ? item.eng : item.rus;
-  const to = initialLanguage === LanguageEnum.eng ? item.rus : item.eng;
-  const [showTranslation, changeTranslationVisibility] = useState<boolean>(
-    false,
-  );
-  const changeLanguagePress = (v: boolean) => () => {
-    changeTranslationVisibility(v);
+interface ItemState {
+  showTranslation: boolean;
+}
+
+export class ListeningWordsItem extends PureComponent<ItemProps, ItemState> {
+  state = {
+    showTranslation: false,
   };
 
-  return (
-    <TouchableOpacity
-      style={styles.container}
-      onPressOut={changeLanguagePress(false)}
-      onLongPress={changeLanguagePress(true)}
-      activeOpacity={1}>
-      <Text style={styles.title}>{showTranslation ? from.vord : to.vord}</Text>
+  changeLanguagePress = (v: boolean) => () => {
+    this.setState({showTranslation: v});
+  };
 
-      <View style={styles.exampleContaniner}>
-        {showTranslation
-          ? from.example?.map((v) => (
-              <View key={v.id}>
-                <Text style={styles.text}>{v.value}</Text>
-              </View>
-            ))
-          : to.example?.map((v) => (
-              <View key={v.id}>
-                <Text style={styles.text}>{v.value}</Text>
-              </View>
-            ))}
-      </View>
-    </TouchableOpacity>
-  );
-};
+  render() {
+    const {initialLanguage, item} = this.props;
+    const from = initialLanguage === LanguageEnum.eng ? item.eng : item.rus;
+    const to = initialLanguage === LanguageEnum.eng ? item.rus : item.eng;
+    return (
+      <TouchableOpacity
+        style={styles.container}
+        onPressOut={this.changeLanguagePress(false)}
+        onLongPress={this.changeLanguagePress(true)}
+        activeOpacity={1}>
+        <Text style={styles.title}>
+          {this.state.showTranslation ? from.vord : to.vord}
+        </Text>
+
+        <View style={styles.exampleContaniner}>
+          {this.state.showTranslation
+            ? from.example?.map((v) => (
+                <View key={v.id}>
+                  <Text style={styles.text}>{v.value}</Text>
+                </View>
+              ))
+            : to.example?.map((v) => (
+                <View key={v.id}>
+                  <Text style={styles.text}>{v.value}</Text>
+                </View>
+              ))}
+        </View>
+      </TouchableOpacity>
+    );
+  }
+}
 
 const styles = StyleSheet.create({
   container: {

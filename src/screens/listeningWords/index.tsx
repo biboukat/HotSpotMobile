@@ -50,13 +50,18 @@ export const ListeningWordsScreen = ({route}: ListeningWordsScreenProps) => {
   const [baseLnaguage, seBaseLanguage] = useState<LanguageEnum>(
     LanguageEnum.rus,
   );
+  const [currentWordIndex, setCurrentWordIndex] = useState<number>(0);
 
   const renderItem = ({item}: {item: IValabularyItem}) => {
     return <ListeningWordsItem item={item} initialLanguage={baseLnaguage} />;
   };
 
-  const selectLanguage = (lang: LanguageEnum) => () => {
-    seBaseLanguage(lang);
+  const selectLanguage = () => {
+    if (baseLnaguage === LanguageEnum.eng) {
+      seBaseLanguage(LanguageEnum.rus);
+    } else {
+      seBaseLanguage(LanguageEnum.eng);
+    }
   };
 
   return (
@@ -68,29 +73,20 @@ export const ListeningWordsScreen = ({route}: ListeningWordsScreenProps) => {
         sliderHeight={windowHeight}
         itemWidth={windowWidth}
         itemHeight={windowHeight}
+        onSnapToItem={setCurrentWordIndex}
       />
 
       <View style={styles.buttonContainer}>
-        <TouchableOpacity
-          style={[
-            styles.button,
-            baseLnaguage === LanguageEnum.eng ? styles.disabledButton : null,
-          ]}
-          onPress={selectLanguage(LanguageEnum.eng)}
-          disabled={baseLnaguage === LanguageEnum.eng}>
-          <Text style={styles.text}>{'rus -> eng'}</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={[
-            styles.button,
-            baseLnaguage === LanguageEnum.rus ? styles.disabledButton : null,
-          ]}
-          onPress={selectLanguage(LanguageEnum.rus)}
-          disabled={baseLnaguage === LanguageEnum.rus}>
-          <Text style={styles.text}>{'eng -> rus'}</Text>
+        <TouchableOpacity style={[styles.button]} onPress={selectLanguage}>
+          <Text style={styles.text}>
+            {baseLnaguage === LanguageEnum.eng ? 'eng -> rus' : 'rus -> eng'}
+          </Text>
         </TouchableOpacity>
       </View>
+
+      <Text style={styles.numbering}>{`${currentWordIndex + 1}/${
+        data.length
+      }`}</Text>
     </>
   );
 };
@@ -101,16 +97,19 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     paddingHorizontal: 16,
     borderRadius: 4,
+    alignItems: 'center',
   },
   buttonContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
+    marginBottom: 8,
+    marginHorizontal: 16,
   },
   text: {
     color: '#fff',
     fontWeight: 'bold',
   },
-  disabledButton: {
-    backgroundColor: '#cd5720',
+  numbering: {
+    position: 'absolute',
+    top: 8,
+    right: 16,
   },
 });
