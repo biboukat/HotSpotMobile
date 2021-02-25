@@ -1,6 +1,6 @@
 import {IValabularyItem} from '../index';
 
-export const listeningWeek1: IValabularyItem[] = [
+export const listeningWeek2: IValabularyItem[] = [
   {
     eng: {
       vord: 'sight',

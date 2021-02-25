@@ -1,13 +1,14 @@
 import React, {useState} from 'react';
 import {Text, StyleSheet, TouchableOpacity, View} from 'react-native';
-import {IValabularyItem, LanguageEnum} from './data';
+
+import {IValabularyItem, LanguageEnum} from '~/data';
 
 interface ItemProps {
   item: IValabularyItem;
   initialLanguage: LanguageEnum;
 }
 
-const Item = ({item, initialLanguage}: ItemProps) => {
+export const ListeningWordsItem = ({item, initialLanguage}: ItemProps) => {
   const from = initialLanguage === LanguageEnum.eng ? item.eng : item.rus;
   const to = initialLanguage === LanguageEnum.eng ? item.rus : item.eng;
   const [showTranslation, changeTranslationVisibility] = useState<boolean>(
@@ -41,8 +42,6 @@ const Item = ({item, initialLanguage}: ItemProps) => {
     </TouchableOpacity>
   );
 };
-
-export default Item;
 
 const styles = StyleSheet.create({
   container: {

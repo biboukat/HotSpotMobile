@@ -1,38 +1,42 @@
 import React from 'react';
 import {Text, View, StyleSheet, ScrollView} from 'react-native';
 import {RectButton} from 'react-native-gesture-handler';
-import {SafeAreaView} from 'react-native-safe-area-context';
+import {StackNavigationProp} from '@react-navigation/stack';
+import {SpeakingStackParamList} from '~/navigation';
 
-export const ListeningScreen = () => {
+type ListeningScreenProps = {
+  navigation: StackNavigationProp<SpeakingStackParamList, 'Listening'>;
+};
+
+export const ListeningScreen = ({navigation}: ListeningScreenProps) => {
+  const openScreenWithWords = (weekNumber: string) => () => {
+    navigation.navigate('ListeningWords', {weekNumber});
+  };
+
   return (
-    <SafeAreaView style={styles.wrapper}>
-      <ScrollView contentContainerStyle={styles.container}>
-        <RectButton onPress={() => {}} style={styles.button}>
-          <View accessible>
-            <Text style={styles.buttonText}>{'Week 1'}</Text>
-          </View>
-        </RectButton>
+    <ScrollView contentContainerStyle={styles.container}>
+      <RectButton onPress={openScreenWithWords('week1')} style={styles.button}>
+        <View accessible>
+          <Text style={styles.buttonText}>{'Week 1'}</Text>
+        </View>
+      </RectButton>
 
-        <RectButton onPress={() => {}} style={styles.button}>
-          <View accessible>
-            <Text style={styles.buttonText}>{'Week 2'}</Text>
-          </View>
-        </RectButton>
+      <RectButton onPress={openScreenWithWords('week2')} style={styles.button}>
+        <View accessible>
+          <Text style={styles.buttonText}>{'Week 2'}</Text>
+        </View>
+      </RectButton>
 
-        <RectButton onPress={() => {}} style={styles.button}>
-          <View accessible>
-            <Text style={styles.buttonText}>{'Week 5'}</Text>
-          </View>
-        </RectButton>
-      </ScrollView>
-    </SafeAreaView>
+      <RectButton onPress={openScreenWithWords('week5')} style={styles.button}>
+        <View accessible>
+          <Text style={styles.buttonText}>{'Week 5'}</Text>
+        </View>
+      </RectButton>
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
-  wrapper: {
-    flex: 1,
-  },
   container: {
     justifyContent: 'center',
     flexGrow: 1,
