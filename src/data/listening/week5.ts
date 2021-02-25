@@ -1,22 +1,31 @@
 import {IValabularyItem} from '../index';
 
-export const listeningWeek2: IValabularyItem[] = [
+export const listeningWeek5: IValabularyItem[] = [
   {
     eng: {
-      vord: 'sight',
-      partOfSpeach: 'noun',
-      example: [{value: 'a beautiful sight', id: '1'}],
+      vord: 'tough',
+      partOfSpeach: 'adjective',
+      example: [
+        {value: 'a tough guy', id: '1'},
+        {value: 'a tough question', id: '2'},
+      ],
     },
     rus: {
-      vord: 'вид',
-      example: [{value: 'красивый вид', id: '1'}],
+      vord: 'сильный, суровый, сложный',
+      example: [
+        {value: 'суровый парень', id: '1'},
+        {value: 'сложный вопрос', id: '2'},
+      ],
     },
   },
   {
     eng: {
-      vord: 'pressure',
-      partOfSpeach: 'noun',
-      example: [{value: 'under pressure', id: '1'}],
+      vord: 'sensible',
+      partOfSpeach: 'adjective',
+      example: [
+        {value: 'a sensible person', id: '1'},
+        {value: 'a sensible person', id: '2'},
+      ],
     },
     rus: {
       vord: 'давление',

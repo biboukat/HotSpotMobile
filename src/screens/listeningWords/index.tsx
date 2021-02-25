@@ -16,6 +16,7 @@ import {
   LanguageEnum,
   listeningWeek1,
   listeningWeek2,
+  listeningWeek5,
 } from '~/data';
 import {ListeningWordsItem} from './Item';
 
@@ -37,7 +38,7 @@ const getDataByWeek = (week: string) => {
     case 'week4':
       return [];
     case 'week5':
-      return [];
+      return listeningWeek5;
 
     default:
       return [];
