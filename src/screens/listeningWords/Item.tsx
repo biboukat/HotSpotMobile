@@ -5,7 +5,7 @@ import {IValabularyItem, LanguageEnum} from '~/data';
 
 interface ItemProps {
   item: IValabularyItem;
-  initialLanguage: LanguageEnum;
+  baseLnaguage: LanguageEnum;
 }
 
 interface ItemState {
@@ -22,10 +22,10 @@ export class ListeningWordsItem extends PureComponent<ItemProps, ItemState> {
   };
 
   render() {
-    const {initialLanguage, item} = this.props;
+    const {baseLnaguage, item} = this.props;
     const {showTranslation} = this.state;
-    const from = initialLanguage === LanguageEnum.eng ? item.eng : item.rus;
-    const to = initialLanguage === LanguageEnum.eng ? item.rus : item.eng;
+    const from = baseLnaguage === LanguageEnum.eng ? item.eng : item.rus;
+    const to = baseLnaguage === LanguageEnum.eng ? item.rus : item.eng;
 
     const word = showTranslation ? to.vord : from.vord;
     const example = showTranslation ? to.example : from.example;

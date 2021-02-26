@@ -1,6 +1,10 @@
 export * from './listening';
 
+export interface IValabularyById {
+  [key: string]: IValabularyItem;
+}
 export interface IValabularyItem {
+  id: string;
   eng: {
     vord: string;
     partOfSpeach?: string;

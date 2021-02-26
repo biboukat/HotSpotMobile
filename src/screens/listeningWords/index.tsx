@@ -9,16 +9,12 @@ import {
 import {RouteProp} from '@react-navigation/native';
 import Carousel from 'react-native-snap-carousel';
 import shuffle from 'lodash/shuffle';
+import {observer} from 'mobx-react';
 
 import {SpeakingStackParamList} from '~/navigation';
-import {
-  IValabularyItem,
-  LanguageEnum,
-  listeningWeek1,
-  listeningWeek2,
-  listeningWeek5,
-} from '~/data';
+import {LanguageEnum} from '~/data';
 import {ListeningWordsItem} from './Item';
+import {useStore} from '~/store';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
@@ -27,69 +23,59 @@ type ListeningWordsScreenProps = {
   route: RouteProp<SpeakingStackParamList, 'ListeningWords'>;
 };
 
-const getDataByWeek = (week: string) => {
-  switch (week) {
-    case 'week1':
-      return listeningWeek1;
-    case 'week2':
-      return listeningWeek2;
-    case 'week3':
-      return [];
-    case 'week4':
-      return [];
-    case 'week5':
-      return listeningWeek5;
+export const ListeningWordsScreen = observer(
+  ({route}: ListeningWordsScreenProps) => {
+    const {listeningStore} = useStore();
 
-    default:
-      return [];
-  }
-};
+    const [data] = useState(
+      shuffle(listeningStore.getWeekIds(route.params.weekNumber)),
+    );
+    const [currentWordIndex, setCurrentWordIndex] = useState<number>(0);
 
-export const ListeningWordsScreen = ({route}: ListeningWordsScreenProps) => {
-  const [data] = useState(shuffle(getDataByWeek(route.params.weekNumber)));
-  const [baseLnaguage, seBaseLanguage] = useState<LanguageEnum>(
-    LanguageEnum.rus,
-  );
-  const [currentWordIndex, setCurrentWordIndex] = useState<number>(0);
+    const renderItem = ({item}: {item: string}) => {
+      console.log(`bla item ${item} ---> `, listeningStore.getWordById(item));
 
-  const renderItem = ({item}: {item: IValabularyItem}) => {
-    return <ListeningWordsItem item={item} initialLanguage={baseLnaguage} />;
-  };
+      return (
+        <ListeningWordsItem
+          item={listeningStore.getWordById(item)}
+          baseLnaguage={listeningStore.baseLnaguage}
+        />
+      );
+    };
 
-  const selectLanguage = () => {
-    if (baseLnaguage === LanguageEnum.eng) {
-      seBaseLanguage(LanguageEnum.rus);
-    } else {
-      seBaseLanguage(LanguageEnum.eng);
-    }
-  };
+    const changeLanguage = () => {
+      listeningStore.changeBaseLanguage();
+    };
 
-  return (
-    <>
-      <Carousel<IValabularyItem>
-        data={data}
-        renderItem={renderItem}
-        sliderWidth={windowWidth}
-        sliderHeight={windowHeight}
-        itemWidth={windowWidth}
-        itemHeight={windowHeight}
-        onSnapToItem={setCurrentWordIndex}
-      />
+    return (
+      <>
+        <Carousel<string>
+          data={data}
+          renderItem={renderItem}
+          sliderWidth={windowWidth}
+          sliderHeight={windowHeight}
+          itemWidth={windowWidth}
+          itemHeight={windowHeight}
+          onSnapToItem={setCurrentWordIndex}
+        />
 
-      <View style={styles.buttonContainer}>
-        <TouchableOpacity style={[styles.button]} onPress={selectLanguage}>
-          <Text style={styles.text}>
-            {baseLnaguage === LanguageEnum.eng ? 'rus -> eng' : 'eng -> rus'}
-          </Text>
-        </TouchableOpacity>
-      </View>
+        <View style={styles.buttonContainer}>
+          <TouchableOpacity style={styles.button} onPress={changeLanguage}>
+            <Text style={styles.text}>
+              {listeningStore.baseLnaguage === LanguageEnum.eng
+                ? 'rus -> eng'
+                : 'eng -> rus'}
+            </Text>
+          </TouchableOpacity>
+        </View>
 
-      <Text style={styles.numbering}>{`${currentWordIndex + 1}/${
-        data.length
-      }`}</Text>
-    </>
-  );
-};
+        <Text style={styles.numbering}>{`${currentWordIndex + 1}/${
+          data.length
+        }`}</Text>
+      </>
+    );
+  },
+);
 
 const styles = StyleSheet.create({
   button: {

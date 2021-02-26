@@ -1,7 +1,47 @@
-import {IValabularyItem} from '../index';
+import {IValabularyById} from '../index';
 
-export const listeningWeek5: IValabularyItem[] = [
-  {
+export const listeningWeek5Ids = [
+  'listeningWeek5-1',
+  'listeningWeek5-2',
+  'listeningWeek5-3',
+  'listeningWeek5-4',
+  'listeningWeek5-5',
+  'listeningWeek5-6',
+  'listeningWeek5-7',
+  'listeningWeek5-8',
+  'listeningWeek5-9',
+  'listeningWeek5-10',
+  'listeningWeek5-11',
+  'listeningWeek5-12',
+  'listeningWeek5-13',
+  'listeningWeek5-14',
+  'listeningWeek5-15',
+  'listeningWeek5-16',
+  'listeningWeek5-17',
+  'listeningWeek5-18',
+  'listeningWeek5-19',
+  'listeningWeek5-20',
+  'listeningWeek5-21',
+  'listeningWeek5-22',
+  'listeningWeek5-23',
+  'listeningWeek5-24',
+  'listeningWeek5-25',
+  'listeningWeek5-26',
+  'listeningWeek5-27',
+  'listeningWeek5-28',
+  'listeningWeek5-29',
+  'listeningWeek5-30',
+  'listeningWeek5-31',
+  'listeningWeek5-32',
+  'listeningWeek5-33',
+  'listeningWeek5-34',
+  'listeningWeek5-35',
+  'listeningWeek5-36',
+  'listeningWeek5-37',
+];
+export const listeningWeek5ById: IValabularyById = {
+  'listeningWeek5-1': {
+    id: 'listeningWeek5-1',
     eng: {
       vord: 'tough',
       partOfSpeach: 'adjective',
@@ -18,7 +58,8 @@ export const listeningWeek5: IValabularyItem[] = [
       ],
     },
   },
-  {
+  'listeningWeek5-2': {
+    id: 'listeningWeek5-2',
     eng: {
       vord: 'sensible',
       partOfSpeach: 'adjective',
@@ -35,18 +76,17 @@ export const listeningWeek5: IValabularyItem[] = [
       ],
     },
   },
-  {
+  'listeningWeek5-3': {
+    id: 'listeningWeek5-3',
     eng: {
       vord: 'entire',
       partOfSpeach: 'adjective',
       example: [{value: 'the entire day', id: '1'}],
     },
-    rus: {
-      vord: 'целый',
-      example: [{value: 'целый день', id: '1'}],
-    },
+    rus: {vord: 'целый', example: [{value: 'целый день', id: '1'}]},
   },
-  {
+  'listeningWeek5-4': {
+    id: 'listeningWeek5-4',
     eng: {
       vord: 'research',
       partOfSpeach: 'noun',
@@ -57,7 +97,8 @@ export const listeningWeek5: IValabularyItem[] = [
       example: [{value: 'проводить исследование', id: '1'}],
     },
   },
-  {
+  'listeningWeek5-5': {
+    id: 'listeningWeek5-5',
     eng: {
       vord: 'entertainment',
       partOfSpeach: 'noun',
@@ -74,7 +115,8 @@ export const listeningWeek5: IValabularyItem[] = [
       ],
     },
   },
-  {
+  'listeningWeek5-6': {
+    id: 'listeningWeek5-6',
     eng: {
       vord: 'shame',
       partOfSpeach: 'noun',
@@ -93,7 +135,8 @@ export const listeningWeek5: IValabularyItem[] = [
       ],
     },
   },
-  {
+  'listeningWeek5-7': {
+    id: 'listeningWeek5-7',
     eng: {
       vord: 'illegal',
       partOfSpeach: 'adjective',
@@ -104,18 +147,17 @@ export const listeningWeek5: IValabularyItem[] = [
       example: [{value: 'запрещенные наркотики', id: '1'}],
     },
   },
-  {
+  'listeningWeek5-8': {
+    id: 'listeningWeek5-8',
     eng: {
       vord: 'liquid',
       partOfSpeach: 'noun',
       example: [{value: 'to add liquid', id: '1'}],
     },
-    rus: {
-      vord: 'жидкость',
-      example: [{value: 'добавить жидкость', id: '1'}],
-    },
+    rus: {vord: 'жидкость', example: [{value: 'добавить жидкость', id: '1'}]},
   },
-  {
+  'listeningWeek5-9': {
+    id: 'listeningWeek5-9',
     eng: {
       vord: 'request',
       partOfSpeach: 'noun',
@@ -132,7 +174,8 @@ export const listeningWeek5: IValabularyItem[] = [
       ],
     },
   },
-  {
+  'listeningWeek5-10': {
+    id: 'listeningWeek5-10',
     eng: {
       vord: 'wise',
       partOfSpeach: 'adjective',
@@ -149,7 +192,8 @@ export const listeningWeek5: IValabularyItem[] = [
       ],
     },
   },
-  {
+  'listeningWeek5-11': {
+    id: 'listeningWeek5-11',
     eng: {
       vord: 'target',
       partOfSpeach: 'noun',
@@ -168,7 +212,8 @@ export const listeningWeek5: IValabularyItem[] = [
       ],
     },
   },
-  {
+  'listeningWeek5-12': {
+    id: 'listeningWeek5-12',
     eng: {
       vord: 'host',
       partOfSpeach: 'noun',
@@ -185,7 +230,8 @@ export const listeningWeek5: IValabularyItem[] = [
       ],
     },
   },
-  {
+  'listeningWeek5-13': {
+    id: 'listeningWeek5-13',
     eng: {
       vord: 'weird',
       partOfSpeach: 'adjective',
@@ -196,18 +242,17 @@ export const listeningWeek5: IValabularyItem[] = [
       example: [{value: 'странная вещь', id: '1'}],
     },
   },
-  {
+  'listeningWeek5-14': {
+    id: 'listeningWeek5-14',
     eng: {
       vord: 'judge',
       partOfSpeach: 'noun',
       example: [{value: 'a strict judge', id: '1'}],
     },
-    rus: {
-      vord: 'судья',
-      example: [{value: 'строгий судья', id: '1'}],
-    },
+    rus: {vord: 'судья', example: [{value: 'строгий судья', id: '1'}]},
   },
-  {
+  'listeningWeek5-15': {
+    id: 'listeningWeek5-15',
     eng: {
       vord: 'obsessed',
       partOfSpeach: 'adjective',
@@ -218,7 +263,8 @@ export const listeningWeek5: IValabularyItem[] = [
       example: [{value: 'быть зацикленным на деньгах', id: '1'}],
     },
   },
-  {
+  'listeningWeek5-16': {
+    id: 'listeningWeek5-16',
     eng: {
       vord: 'relate',
       partOfSpeach: 'verb',
@@ -229,7 +275,8 @@ export const listeningWeek5: IValabularyItem[] = [
       example: [{value: 'иметь отношение к событиям', id: '1'}],
     },
   },
-  {
+  'listeningWeek5-17': {
+    id: 'listeningWeek5-17',
     eng: {
       vord: 'affair',
       partOfSpeach: 'noun',
@@ -246,7 +293,8 @@ export const listeningWeek5: IValabularyItem[] = [
       ],
     },
   },
-  {
+  'listeningWeek5-18': {
+    id: 'listeningWeek5-18',
     eng: {
       vord: 'landscape',
       partOfSpeach: 'noun',
@@ -257,7 +305,8 @@ export const listeningWeek5: IValabularyItem[] = [
       example: [{value: 'городской ландшафт', id: '1'}],
     },
   },
-  {
+  'listeningWeek5-19': {
+    id: 'listeningWeek5-19',
     eng: {
       vord: 'respond',
       partOfSpeach: 'verb',
@@ -268,7 +317,8 @@ export const listeningWeek5: IValabularyItem[] = [
       example: [{value: 'отреагировать на новость', id: '1'}],
     },
   },
-  {
+  'listeningWeek5-20': {
+    id: 'listeningWeek5-20',
     eng: {
       vord: 'fire',
       partOfSpeach: 'verb',
@@ -285,7 +335,8 @@ export const listeningWeek5: IValabularyItem[] = [
       ],
     },
   },
-  {
+  'listeningWeek5-21': {
+    id: 'listeningWeek5-21',
     eng: {
       vord: 'pick',
       partOfSpeach: 'verb',
@@ -302,18 +353,17 @@ export const listeningWeek5: IValabularyItem[] = [
       ],
     },
   },
-  {
+  'listeningWeek5-22': {
+    id: 'listeningWeek5-22',
     eng: {
       vord: 'accommodation',
       partOfSpeach: 'noun',
       example: [{value: 'cheap accommodation', id: '1'}],
     },
-    rus: {
-      vord: 'жилье',
-      example: [{value: 'дешевое жилье', id: '1'}],
-    },
+    rus: {vord: 'жилье', example: [{value: 'дешевое жилье', id: '1'}]},
   },
-  {
+  'listeningWeek5-23': {
+    id: 'listeningWeek5-23',
     eng: {
       vord: 'nasty',
       partOfSpeach: 'adjective',
@@ -330,7 +380,8 @@ export const listeningWeek5: IValabularyItem[] = [
       ],
     },
   },
-  {
+  'listeningWeek5-24': {
+    id: 'listeningWeek5-24',
     eng: {
       vord: 'apply',
       partOfSpeach: 'verb',
@@ -341,7 +392,8 @@ export const listeningWeek5: IValabularyItem[] = [
       example: [{value: 'подавать заявление о приеме на работу', id: '1'}],
     },
   },
-  {
+  'listeningWeek5-25': {
+    id: 'listeningWeek5-25',
     eng: {
       vord: 'chase',
       partOfSpeach: 'verb',
@@ -352,7 +404,8 @@ export const listeningWeek5: IValabularyItem[] = [
       example: [{value: 'преследовать преступника', id: '1'}],
     },
   },
-  {
+  'listeningWeek5-26': {
+    id: 'listeningWeek5-26',
     eng: {
       vord: 'approach',
       partOfSpeach: 'noun',
@@ -369,7 +422,8 @@ export const listeningWeek5: IValabularyItem[] = [
       ],
     },
   },
-  {
+  'listeningWeek5-27': {
+    id: 'listeningWeek5-27',
     eng: {
       vord: 'heat',
       partOfSpeach: 'noun',
@@ -386,18 +440,17 @@ export const listeningWeek5: IValabularyItem[] = [
       ],
     },
   },
-  {
+  'listeningWeek5-28': {
+    id: 'listeningWeek5-28',
     eng: {
       vord: 'signature',
       partOfSpeach: 'noun',
       example: [{value: 'to put down your signature', id: '1'}],
     },
-    rus: {
-      vord: 'подпись',
-      example: [{value: 'поставить подпись', id: '1'}],
-    },
+    rus: {vord: 'подпись', example: [{value: 'поставить подпись', id: '1'}]},
   },
-  {
+  'listeningWeek5-29': {
+    id: 'listeningWeek5-29',
     eng: {
       vord: 'favor',
       partOfSpeach: 'noun',
@@ -414,7 +467,8 @@ export const listeningWeek5: IValabularyItem[] = [
       ],
     },
   },
-  {
+  'listeningWeek5-30': {
+    id: 'listeningWeek5-30',
     eng: {
       vord: 'enable',
       partOfSpeach: 'verb',
@@ -425,7 +479,8 @@ export const listeningWeek5: IValabularyItem[] = [
       example: [{value: 'дать возможность уйти на пенсию', id: '1'}],
     },
   },
-  {
+  'listeningWeek5-31': {
+    id: 'listeningWeek5-31',
     eng: {
       vord: 'greatful',
       partOfSpeach: 'adjective',
@@ -436,7 +491,8 @@ export const listeningWeek5: IValabularyItem[] = [
       example: [{value: 'быть балгодарным за эффективное руковдсво', id: '1'}],
     },
   },
-  {
+  'listeningWeek5-32': {
+    id: 'listeningWeek5-32',
     eng: {
       vord: 'provide',
       partOfSpeach: 'verb',
@@ -447,7 +503,8 @@ export const listeningWeek5: IValabularyItem[] = [
       example: [{value: 'предоставлять информацию', id: '1'}],
     },
   },
-  {
+  'listeningWeek5-33': {
+    id: 'listeningWeek5-33',
     eng: {
       vord: 'drop sb off',
       partOfSpeach: '',
@@ -458,7 +515,8 @@ export const listeningWeek5: IValabularyItem[] = [
       example: [{value: 'Высади меня на вокзале', id: '1'}],
     },
   },
-  {
+  'listeningWeek5-34': {
+    id: 'listeningWeek5-34',
     eng: {
       vord: 'come across sht',
       partOfSpeach: '',
@@ -479,7 +537,8 @@ export const listeningWeek5: IValabularyItem[] = [
       ],
     },
   },
-  {
+  'listeningWeek5-35': {
+    id: 'listeningWeek5-35',
     eng: {
       vord: 'put sth off',
       partOfSpeach: '',
@@ -490,7 +549,8 @@ export const listeningWeek5: IValabularyItem[] = [
       example: [{value: 'Не откладывай это на понедельник', id: '1'}],
     },
   },
-  {
+  'listeningWeek5-36': {
+    id: 'listeningWeek5-36',
     eng: {
       vord: 'take a rain check',
       partOfSpeach: '',
@@ -508,7 +568,8 @@ export const listeningWeek5: IValabularyItem[] = [
       ],
     },
   },
-  {
+  'listeningWeek5-37': {
+    id: 'listeningWeek5-37',
     eng: {
       vord: 'go on',
       partOfSpeach: '',
@@ -525,4 +586,4 @@ export const listeningWeek5: IValabularyItem[] = [
       ],
     },
   },
-];
+};
