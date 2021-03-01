@@ -9,6 +9,7 @@ import {
   ListeningWordsScreen,
   SpeakingScreen,
 } from '~/screens';
+import {HardToLearnScreen} from '~/screens/hardToLearn';
 
 type RootStackParamList = {
   Speaking: undefined;
@@ -16,23 +17,24 @@ type RootStackParamList = {
   Listening: undefined;
 };
 
-export type SpeakingStackParamList = {
+export type ListeningStackParamList = {
   Listening: undefined;
   ListeningWords: {weekNumber: string};
+  HardToLearn: undefined;
 };
 
 const Tab = createBottomTabNavigator<RootStackParamList>();
-const SpeakingStack = createStackNavigator<SpeakingStackParamList>();
+const ListeningStack = createStackNavigator<ListeningStackParamList>();
 
-const SpeakingStackNavigator = () => {
+const ListeningStackNavigator = () => {
   return (
-    <SpeakingStack.Navigator initialRouteName={'Listening'}>
-      <SpeakingStack.Screen
+    <ListeningStack.Navigator initialRouteName={'Listening'}>
+      <ListeningStack.Screen
         name={'Listening'}
         component={ListeningScreen}
         options={{headerShown: false}}
       />
-      <SpeakingStack.Screen
+      <ListeningStack.Screen
         options={{
           title: 'Listening Words',
           headerBackTitleVisible: false,
@@ -41,7 +43,15 @@ const SpeakingStackNavigator = () => {
         component={ListeningWordsScreen}
         initialParams={{weekNumber: 'week1'}}
       />
-    </SpeakingStack.Navigator>
+      <ListeningStack.Screen
+        options={{
+          title: 'Hard to learn',
+          headerBackTitleVisible: false,
+        }}
+        name={'HardToLearn'}
+        component={HardToLearnScreen}
+      />
+    </ListeningStack.Navigator>
   );
 };
 
@@ -51,7 +61,7 @@ export const Navigation = () => {
       <Tab.Navigator tabBarOptions={{activeTintColor: 'tomato'}}>
         <Tab.Screen name={'Speaking'} component={SpeakingScreen} />
         <Tab.Screen name={'Grammar'} component={GrammarScreen} />
-        <Tab.Screen name={'Listening'} component={SpeakingStackNavigator} />
+        <Tab.Screen name={'Listening'} component={ListeningStackNavigator} />
       </Tab.Navigator>
     </NavigationContainer>
   );

@@ -1,4 +1,5 @@
 import {action, makeObservable, observable} from 'mobx';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import {
   IValabularyById,
@@ -14,10 +15,29 @@ import {
   listeningWeek6Ids,
 } from '~/data';
 
+const hardToLearnStorageKey = 'hardToLearnStorageKey';
 export class ListeningStore {
   constructor() {
     makeObservable(this);
+    this.getStorageData();
   }
+
+  private async getStorageData() {
+    try {
+      const hardToLearnStorageData = await AsyncStorage.getItem(
+        hardToLearnStorageKey,
+      );
+      if (hardToLearnStorageData !== null) {
+        this.hardToLearn = JSON.parse(hardToLearnStorageData);
+      }
+    } catch (e) {
+      console.error(
+        `async storage error getItem with key -> ${hardToLearnStorageKey}`,
+        e,
+      );
+    }
+  }
+
   @observable baseLnaguage: LanguageEnum = LanguageEnum.eng;
   @observable weeek1Ids: Array<string> = listeningWeek1Ids;
   @observable weeek2Ids: Array<string> = listeningWeek2Ids;
@@ -46,6 +66,11 @@ export class ListeningStore {
     } else {
       this.hardToLearn[id] = true;
     }
+
+    AsyncStorage.setItem(
+      hardToLearnStorageKey,
+      JSON.stringify(this.hardToLearn),
+    );
   }
 
   getWordById(id: string): IValabularyItem {

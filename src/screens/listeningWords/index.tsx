@@ -9,10 +9,9 @@ import {
 import {RouteProp} from '@react-navigation/native';
 import Carousel from 'react-native-snap-carousel';
 import {observer} from 'mobx-react';
-// import shuffle from 'lodash/shuffle';
-// import intersection from 'lodash/intersection';
+import shuffle from 'lodash/shuffle';
 
-import {SpeakingStackParamList} from '~/navigation';
+import {ListeningStackParamList} from '~/navigation';
 import {LanguageEnum} from '~/data';
 import {ListeningWordsItem} from './Item';
 import {useStore} from '~/store';
@@ -21,31 +20,17 @@ const windowWidth = Dimensions.get('screen').width;
 const windowHeight = Dimensions.get('screen').height;
 
 type ListeningWordsScreenProps = {
-  route: RouteProp<SpeakingStackParamList, 'ListeningWords'>;
+  route: RouteProp<ListeningStackParamList, 'ListeningWords'>;
 };
 
 export const ListeningWordsScreen = observer(
   ({route}: ListeningWordsScreenProps) => {
     const {listeningStore} = useStore();
-    // const isFirstRender = useRef<boolean>(true);
 
-    // const [data, setData] = useState(
-    //   shuffle(listeningStore.getWeekIds(route.params.weekNumber)),
-    // );
+    const [data] = useState(
+      shuffle(listeningStore.getWeekIds(route.params.weekNumber)),
+    );
     const [currentWordIndex, setCurrentWordIndex] = useState<number>(0);
-
-    // useEffect(() => {
-    //   if (isFirstRender.current) {
-    //     isFirstRender.current = false;
-    //   } else {
-    //     const newData = intersection(
-    //       data,
-    //       listeningStore.getWeekIds(route.params.weekNumber),
-    //     );
-    //     setData(newData);
-    //   }
-    //   // eslint-disable-next-line react-hooks/exhaustive-deps
-    // }, [listeningStore.getWeekIds(route.params.weekNumber)]);
 
     const hardToLearnPress = (id: string) => () => {
       listeningStore.changeHardToLearnStatusByWordId(id);
@@ -66,8 +51,6 @@ export const ListeningWordsScreen = observer(
       listeningStore.changeBaseLanguage();
     };
     console.log('bla ', listeningStore.hardToLearn);
-
-    const data = listeningStore.getWeekIds(route.params.weekNumber);
     return (
       <>
         <Carousel<string>

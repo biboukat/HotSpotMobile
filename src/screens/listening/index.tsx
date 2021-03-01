@@ -2,10 +2,10 @@ import React from 'react';
 import {Text, View, StyleSheet, ScrollView} from 'react-native';
 import {RectButton} from 'react-native-gesture-handler';
 import {StackNavigationProp} from '@react-navigation/stack';
-import {SpeakingStackParamList} from '~/navigation';
+import {ListeningStackParamList} from '~/navigation';
 
 type ListeningScreenProps = {
-  navigation: StackNavigationProp<SpeakingStackParamList, 'Listening'>;
+  navigation: StackNavigationProp<ListeningStackParamList, 'Listening'>;
 };
 
 export const ListeningScreen = ({navigation}: ListeningScreenProps) => {
@@ -13,11 +13,13 @@ export const ListeningScreen = ({navigation}: ListeningScreenProps) => {
     navigation.navigate('ListeningWords', {weekNumber});
   };
 
+  const openHardToLearnScreen = () => {
+    navigation.navigate('HardToLearn');
+  };
+
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <RectButton
-        onPress={openScreenWithWords('hardToLearn')}
-        style={styles.button}>
+      <RectButton onPress={openHardToLearnScreen} style={styles.button}>
         <View accessible>
           <Text style={styles.buttonText}>{'Hard to learn'}</Text>
         </View>
