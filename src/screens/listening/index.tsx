@@ -32,6 +32,12 @@ export const ListeningScreen = ({navigation}: ListeningScreenProps) => {
           <Text style={styles.buttonText}>{'Week 5'}</Text>
         </View>
       </RectButton>
+
+      <RectButton onPress={openScreenWithWords('week6')} style={styles.button}>
+        <View accessible>
+          <Text style={styles.buttonText}>{'Week 6'}</Text>
+        </View>
+      </RectButton>
     </ScrollView>
   );
 };

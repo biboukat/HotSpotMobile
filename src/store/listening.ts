@@ -10,6 +10,8 @@ import {
   listeningWeek2Ids,
   listeningWeek5ById,
   listeningWeek5Ids,
+  listeningWeek6ById,
+  listeningWeek6Ids,
 } from '~/data';
 
 export class ListeningStore {
@@ -20,11 +22,13 @@ export class ListeningStore {
   @observable weeek1Ids: Array<string> = listeningWeek1Ids;
   @observable weeek2Ids: Array<string> = listeningWeek2Ids;
   @observable weeek5Ids: Array<string> = listeningWeek5Ids;
+  @observable weeek6Ids: Array<string> = listeningWeek6Ids;
 
   @observable wordsById: IValabularyById = {
     ...listeningWeek1ById,
     ...listeningWeek2ById,
     ...listeningWeek5ById,
+    ...listeningWeek6ById,
   };
 
   @action changeBaseLanguage() {
@@ -47,6 +51,8 @@ export class ListeningStore {
         return this.weeek2Ids;
       case 'week5':
         return this.weeek5Ids;
+      case 'week6':
+        return this.weeek6Ids;
 
       default:
         return [];
