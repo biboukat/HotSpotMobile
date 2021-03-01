@@ -1,5 +1,4 @@
-import {action, computed, makeObservable, observable} from 'mobx';
-import {computedFn} from 'mobx-utils';
+import {action, makeObservable, observable} from 'mobx';
 
 import {
   IValabularyById,
