@@ -8,16 +8,17 @@ import {
 } from 'react-native';
 import {RouteProp} from '@react-navigation/native';
 import Carousel from 'react-native-snap-carousel';
-import shuffle from 'lodash/shuffle';
 import {observer} from 'mobx-react';
+// import shuffle from 'lodash/shuffle';
+// import intersection from 'lodash/intersection';
 
 import {SpeakingStackParamList} from '~/navigation';
 import {LanguageEnum} from '~/data';
 import {ListeningWordsItem} from './Item';
 import {useStore} from '~/store';
 
-const windowWidth = Dimensions.get('window').width;
-const windowHeight = Dimensions.get('window').height;
+const windowWidth = Dimensions.get('screen').width;
+const windowHeight = Dimensions.get('screen').height;
 
 type ListeningWordsScreenProps = {
   route: RouteProp<SpeakingStackParamList, 'ListeningWords'>;
@@ -26,37 +27,58 @@ type ListeningWordsScreenProps = {
 export const ListeningWordsScreen = observer(
   ({route}: ListeningWordsScreenProps) => {
     const {listeningStore} = useStore();
+    // const isFirstRender = useRef<boolean>(true);
 
-    const [data] = useState(
-      shuffle(listeningStore.getWeekIds(route.params.weekNumber)),
-    );
+    // const [data, setData] = useState(
+    //   shuffle(listeningStore.getWeekIds(route.params.weekNumber)),
+    // );
     const [currentWordIndex, setCurrentWordIndex] = useState<number>(0);
 
-    const renderItem = ({item}: {item: string}) => {
-      console.log(`bla item ${item} ---> `, listeningStore.getWordById(item));
+    // useEffect(() => {
+    //   if (isFirstRender.current) {
+    //     isFirstRender.current = false;
+    //   } else {
+    //     const newData = intersection(
+    //       data,
+    //       listeningStore.getWeekIds(route.params.weekNumber),
+    //     );
+    //     setData(newData);
+    //   }
+    //   // eslint-disable-next-line react-hooks/exhaustive-deps
+    // }, [listeningStore.getWeekIds(route.params.weekNumber)]);
 
+    const hardToLearnPress = (id: string) => () => {
+      listeningStore.changeHardToLearnStatusByWordId(id);
+    };
+
+    const renderItem = ({item}: {item: string}) => {
       return (
-        <ListeningWordsItem
-          item={listeningStore.getWordById(item)}
-          baseLnaguage={listeningStore.baseLnaguage}
-        />
+        <View style={{width: windowWidth, height: windowHeight}}>
+          <ListeningWordsItem
+            item={listeningStore.getWordById(item)}
+            baseLnaguage={listeningStore.baseLnaguage}
+            isSelected={listeningStore.hardToLearn[item]}
+            hardToLearnPress={hardToLearnPress(item)}
+          />
+        </View>
       );
     };
 
     const changeLanguage = () => {
       listeningStore.changeBaseLanguage();
     };
-
+    const data = listeningStore.getWeekIds(route.params.weekNumber);
     return (
       <>
         <Carousel<string>
           data={data}
           renderItem={renderItem}
           sliderWidth={windowWidth}
-          sliderHeight={windowHeight}
+          sliderHeight={400}
           itemWidth={windowWidth}
-          itemHeight={windowHeight}
+          itemHeight={400}
           onSnapToItem={setCurrentWordIndex}
+          extraData={listeningStore.hardToLearn}
         />
 
         <View style={styles.buttonContainer}>
@@ -69,9 +91,11 @@ export const ListeningWordsScreen = observer(
           </TouchableOpacity>
         </View>
 
-        <Text style={styles.numbering}>{`${currentWordIndex + 1}/${
-          data.length
-        }`}</Text>
+        {data.length > 0 ? (
+          <Text style={styles.numbering}>{`${currentWordIndex + 1}/${
+            data.length
+          }`}</Text>
+        ) : null}
       </>
     );
   },
@@ -88,6 +112,7 @@ const styles = StyleSheet.create({
   buttonContainer: {
     marginBottom: 8,
     marginHorizontal: 16,
+    marginTop: 24,
   },
   text: {
     color: '#fff',

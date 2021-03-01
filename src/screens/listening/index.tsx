@@ -15,15 +15,17 @@ export const ListeningScreen = ({navigation}: ListeningScreenProps) => {
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <RectButton onPress={openScreenWithWords('week1')} style={styles.button}>
+      <RectButton
+        onPress={openScreenWithWords('hardToLearn')}
+        style={styles.button}>
         <View accessible>
-          <Text style={styles.buttonText}>{'Week 1'}</Text>
+          <Text style={styles.buttonText}>{'Hard to learn'}</Text>
         </View>
       </RectButton>
 
-      <RectButton onPress={openScreenWithWords('week2')} style={styles.button}>
+      <RectButton onPress={openScreenWithWords('week6')} style={styles.button}>
         <View accessible>
-          <Text style={styles.buttonText}>{'Week 2'}</Text>
+          <Text style={styles.buttonText}>{'Week 6'}</Text>
         </View>
       </RectButton>
 
@@ -33,9 +35,15 @@ export const ListeningScreen = ({navigation}: ListeningScreenProps) => {
         </View>
       </RectButton>
 
-      <RectButton onPress={openScreenWithWords('week6')} style={styles.button}>
+      <RectButton onPress={openScreenWithWords('week2')} style={styles.button}>
         <View accessible>
-          <Text style={styles.buttonText}>{'Week 6'}</Text>
+          <Text style={styles.buttonText}>{'Week 2'}</Text>
+        </View>
+      </RectButton>
+
+      <RectButton onPress={openScreenWithWords('week1')} style={styles.button}>
+        <View accessible>
+          <Text style={styles.buttonText}>{'Week 1'}</Text>
         </View>
       </RectButton>
     </ScrollView>

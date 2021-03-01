@@ -23,6 +23,7 @@ export class ListeningStore {
   @observable weeek2Ids: Array<string> = listeningWeek2Ids;
   @observable weeek5Ids: Array<string> = listeningWeek5Ids;
   @observable weeek6Ids: Array<string> = listeningWeek6Ids;
+  @observable hardToLearn: {[key: string]: boolean} = {};
 
   @observable wordsById: IValabularyById = {
     ...listeningWeek1ById,
@@ -39,12 +40,22 @@ export class ListeningStore {
     }
   }
 
+  @action changeHardToLearnStatusByWordId(id: string) {
+    if (this.hardToLearn[id]) {
+      delete this.hardToLearn[id];
+    } else {
+      this.hardToLearn[id] = true;
+    }
+  }
+
   getWordById(id: string): IValabularyItem {
     return this.wordsById[id];
   }
 
   getWeekIds(weekNumber: string): Array<string> {
     switch (weekNumber) {
+      case 'hardToLearn':
+        return Object.keys(this.hardToLearn);
       case 'week1':
         return this.weeek1Ids;
       case 'week2':
