@@ -53,20 +53,20 @@ export const ListeningWordsScreen = observer(
 
     const renderItem = ({item}: {item: string}) => {
       return (
-        <View style={{width: windowWidth, height: windowHeight}}>
-          <ListeningWordsItem
-            item={listeningStore.getWordById(item)}
-            baseLnaguage={listeningStore.baseLnaguage}
-            isSelected={listeningStore.hardToLearn[item]}
-            hardToLearnPress={hardToLearnPress(item)}
-          />
-        </View>
+        <ListeningWordsItem
+          item={listeningStore.getWordById(item)}
+          baseLnaguage={listeningStore.baseLnaguage}
+          isSelected={listeningStore.hardToLearn[item]}
+          hardToLearnPress={hardToLearnPress(item)}
+        />
       );
     };
 
     const changeLanguage = () => {
       listeningStore.changeBaseLanguage();
     };
+    console.log('bla ', listeningStore.hardToLearn);
+
     const data = listeningStore.getWeekIds(route.params.weekNumber);
     return (
       <>
@@ -74,11 +74,11 @@ export const ListeningWordsScreen = observer(
           data={data}
           renderItem={renderItem}
           sliderWidth={windowWidth}
-          sliderHeight={400}
+          sliderHeight={windowHeight}
           itemWidth={windowWidth}
-          itemHeight={400}
+          itemHeight={windowHeight}
           onSnapToItem={setCurrentWordIndex}
-          extraData={listeningStore.hardToLearn}
+          extraData={[listeningStore.hardToLearn]}
         />
 
         <View style={styles.buttonContainer}>
@@ -92,9 +92,11 @@ export const ListeningWordsScreen = observer(
         </View>
 
         {data.length > 0 ? (
-          <Text style={styles.numbering}>{`${currentWordIndex + 1}/${
-            data.length
-          }`}</Text>
+          <Text style={styles.numbering}>{`${
+            currentWordIndex + 1 > data.length
+              ? data.length
+              : currentWordIndex + 1
+          }/${data.length}`}</Text>
         ) : null}
       </>
     );
@@ -112,7 +114,6 @@ const styles = StyleSheet.create({
   buttonContainer: {
     marginBottom: 8,
     marginHorizontal: 16,
-    marginTop: 24,
   },
   text: {
     color: '#fff',
