@@ -1,11 +1,15 @@
 import React, {PureComponent} from 'react';
-import {Text, StyleSheet, TouchableOpacity, View} from 'react-native';
+import {Text, StyleSheet, TouchableOpacity, View, Image} from 'react-native';
 
 import {IValabularyItem, LanguageEnum} from '~/data';
+const starIcon = require('../../../assets/images/star/star.png');
+const starSelectedIcon = require('../../../assets/images/star/starSelected.png');
 
 interface ItemProps {
   item: IValabularyItem;
   baseLnaguage: LanguageEnum;
+  isSelected: boolean;
+  hardToLearnPress: () => void;
 }
 
 interface ItemState {
@@ -22,7 +26,7 @@ export class ListeningWordsItem extends PureComponent<ItemProps, ItemState> {
   };
 
   render() {
-    const {baseLnaguage, item} = this.props;
+    const {baseLnaguage, item, isSelected, hardToLearnPress} = this.props;
     const {showTranslation} = this.state;
     const from = baseLnaguage === LanguageEnum.eng ? item.eng : item.rus;
     const to = baseLnaguage === LanguageEnum.eng ? item.rus : item.eng;
@@ -53,6 +57,15 @@ export class ListeningWordsItem extends PureComponent<ItemProps, ItemState> {
             </View>
           ))}
         </View>
+
+        <TouchableOpacity
+          style={styles.starContainer}
+          onPress={hardToLearnPress}>
+          <Image
+            source={isSelected ? starSelectedIcon : starIcon}
+            style={styles.starIcon}
+          />
+        </TouchableOpacity>
       </TouchableOpacity>
     );
   }
@@ -65,7 +78,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 4,
+    borderRadius: 14,
     padding: 8,
   },
   title: {
@@ -82,5 +95,16 @@ const styles = StyleSheet.create({
   },
   partOfSpeach: {
     fontStyle: 'italic',
+  },
+  starContainer: {
+    padding: 16,
+    position: 'absolute',
+    top: 0,
+    right: 0,
+  },
+  starIcon: {
+    width: 45,
+    height: 45,
+    tintColor: 'gold',
   },
 });

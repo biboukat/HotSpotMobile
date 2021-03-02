@@ -6,35 +6,54 @@ import {
   Dimensions,
   TouchableOpacity,
 } from 'react-native';
-import {RouteProp} from '@react-navigation/native';
 import Carousel from 'react-native-snap-carousel';
 import {observer} from 'mobx-react';
 import shuffle from 'lodash/shuffle';
+import {StackNavigationProp} from '@react-navigation/stack';
+import {RectButton} from 'react-native-gesture-handler';
 
-import {ListeningStackParamList} from '~/navigation';
 import {LanguageEnum} from '~/data';
-import {ListeningWordsItem} from './Item';
+import {ListeningWordsItem} from '../listeningWords/Item';
 import {useStore} from '~/store';
+import {ListeningStackParamList} from '~/navigation';
 
 const windowWidth = Dimensions.get('screen').width;
 const windowHeight = Dimensions.get('screen').height;
 
-type ListeningWordsScreenProps = {
-  route: RouteProp<ListeningStackParamList, 'ListeningWords'>;
+type HardToLearnScreenProps = {
+  navigation: StackNavigationProp<ListeningStackParamList, 'Listening'>;
 };
 
-export const ListeningWordsScreen = observer(
-  ({route}: ListeningWordsScreenProps) => {
+export const HardToLearnScreen = observer(
+  ({navigation}: HardToLearnScreenProps) => {
     const {listeningStore} = useStore();
 
-    const [data] = useState(
-      shuffle(listeningStore.getWeekIds(route.params.weekNumber)),
+    const [data, setData] = useState(
+      shuffle(listeningStore.getWeekIds('hardToLearn')),
     );
     const [currentWordIndex, setCurrentWordIndex] = useState<number>(0);
 
     const hardToLearnPress = (id: string) => () => {
+      setData(data.filter((v) => v !== id));
       listeningStore.changeHardToLearnStatusByWordId(id);
     };
+
+    const clearPress = () => {
+      listeningStore.clearHardToLearn();
+      navigation.goBack();
+    };
+
+    React.useLayoutEffect(() => {
+      navigation.setOptions({
+        headerRight: () => (
+          <RectButton onPress={clearPress} style={styles.buttonHeader}>
+            <View accessible>
+              <Text style={styles.buttonText}>{'Remove all'}</Text>
+            </View>
+          </RectButton>
+        ),
+      });
+    }, [navigation]);
 
     const renderItem = ({item}: {item: string}) => {
       return (
@@ -106,5 +125,17 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 8,
     right: 16,
+  },
+
+  buttonHeader: {
+    backgroundColor: 'tomato',
+    marginRight: 8,
+    alignItems: 'center',
+  },
+  buttonText: {
+    color: '#fff',
+    fontSize: 14,
+    fontWeight: 'bold',
+    padding: 4,
   },
 });
