@@ -73,6 +73,11 @@ export class ListeningStore {
     );
   }
 
+  @action clearHardToLearn() {
+    this.hardToLearn = {};
+    AsyncStorage.setItem(hardToLearnStorageKey, JSON.stringify({}));
+  }
+
   getWordById(id: string): IValabularyItem {
     return this.wordsById[id];
   }
